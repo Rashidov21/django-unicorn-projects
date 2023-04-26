@@ -1,0 +1,32 @@
+{% load static %}
+
+{% if MINIFIED %}
+<script src="{% static 'unicorn/js/unicorn.min.js' %}"></script>
+
+<script>
+  var url = "{% url 'django_unicorn:message' %}";
+  var reloadScriptElements = false;
+
+  if ("{{ RELOAD_SCRIPT_ELEMENTS }}" == "True") {
+    reloadScriptElements = true;
+  }
+
+  Unicorn.init(url, "{{ CSRF_HEADER_NAME }}", reloadScriptElements);
+</script>
+{% else %}
+<script type="module">
+  import * as Unicorn from "{% static 'unicorn/js/unicorn.js' %}";
+
+    // Set Unicorn to the global so it can be used by components
+    window.Unicorn = Unicorn;
+
+    var url = "{% url 'django_unicorn:message' %}";
+    var reloadScriptElements = false;
+
+    if ("{{ RELOAD_SCRIPT_ELEMENTS }}" == "True") {
+      reloadScriptElements = true;
+    }
+
+    Unicorn.init(url, "{{ CSRF_HEADER_NAME }}", reloadScriptElements);
+</script>
+{% endif %}
