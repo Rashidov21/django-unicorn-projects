@@ -4,8 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Unicorn Todo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% unicorn_scripts %}
   </head>
   <body>
@@ -15,11 +16,18 @@
         My todo with Unicorn
       </h1>
       <div class="card p-5">
+   
         <div class="columns">
-            <div class="column is-half">
-                {% unicorn 'add-todo-form' %}
+          <div class="column is-full">
+            {% unicorn 'todo-list' %}
+          </div>
+      
+          {% if add_form %}
+          <div class="column is-half">
+              {% unicorn 'add-todo-form' %}             
             </div>
-            <div class="column"></div>
+          {% endif %}
+          
         </div>
       </div>
     </div>

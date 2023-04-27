@@ -1,0 +1,34 @@
+<div>
+    {% for todo in todos %}
+    <article class="media box mb-3 {% if todo.done %} has-background-success {% endif %}">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <h3 class="title">{{todo.title}}</h3> 
+            <h3 class="title">{{todo.done}}</h3> 
+            <small><a href="">{{todo.category}}</a></small> 
+            <small>{{todo.created}}</small>
+            <br>
+            {{todo.content}}
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a unicorn:click="todo_done({{todo.id}})" class="level-item is-size-5 button is-small is-responsive is-outlined is-rounded is-flex px-4">
+              <span class="icon is-small"><i class="fas fa-check"></i></span>
+              <span>Done</span>
+            </a>
+            <a class="level-item is-size-5 button is-small is-responsive is-outlined is-rounded is-flex px-4">
+              <span class="icon is-small"><i class="fas fa-trash"></i></span>
+              <span>Delete  </span>
+            </a>
+
+          </div>
+        </nav>
+      </div>
+      <div class="media-right">
+        <button class="delete"></button>
+      </div>
+    </article>
+    {% endfor %}
+</div>

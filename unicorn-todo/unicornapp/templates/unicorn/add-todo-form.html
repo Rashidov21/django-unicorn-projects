@@ -1,20 +1,37 @@
 <div>
-<form action="">
+  <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+  </script>
+<form action="" method="post" unicorn:submit="add_todo">
+
+  {% if message %}
+    <article class="message {% if message.tag %} is-{{message.tags}} {% endif %}">
+      <div class="message-header">
+        <p>{{message.message|title}}</p>
+        <button class="delete" aria-label="delete" unicorn:click="close_message_box"></button>
+      </div>
+    </article>
+  {% endif %}
+
+  {% csrf_token %}
     <div class="field">
         <label class="label">Title</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+          <input class="input" name="title" type="text" placeholder="Text input">
         </div>
       </div>
     
       
       <div class="field">
-        <label class="label">Priority</label>
+        <label class="label">Category</label>
         <div class="control">
           <div class="select">
-            <select>
-              <option>Select dropdown</option>
-              <option>With options</option>
+            <select name="category">
+              {% for cat in categories %}
+              <option value="{{cat.name}}">{{cat.name}}</option>
+              {% endfor %}
             </select>
           </div>
         </div>
@@ -23,7 +40,7 @@
       <div class="field">
         <label class="label">Description</label>
         <div class="control">
-          <textarea class="textarea" placeholder="Textarea"></textarea>
+          <textarea name="content" class="textarea" placeholder="Textarea"></textarea>
         </div>
       </div>
       
@@ -46,4 +63,5 @@
         </div>
       </div>
 </form>
+
 </div>
