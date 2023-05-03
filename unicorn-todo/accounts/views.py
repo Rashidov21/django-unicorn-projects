@@ -19,14 +19,7 @@ class UserRegisterView(CreateView):
 class UserProfileView(View):
     
     def get(self, request):
-        # print(dir(request.user))
-        msg = "Aka hammasi goodku !"
-        # if request.user.email:
-            # send_mail("Your profile was update",msg,
-            #           from_email=settings.EMAIL_HOST_USER,
-            #           recipient_list=[request.user.email],
-            #           fail_silently=False )
-            # print("Email sended..")
+
         return render(request, 'profile.html')
     
     
