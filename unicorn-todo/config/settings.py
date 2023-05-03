@@ -129,14 +129,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = '/auth/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/auth/profile/'
 LOGOUT_URL = '/auth/logout/'
+LOGOUT_REDIRECT_URL = '/auth/login/'
 
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-EMAIL_HOST = 'smtp.yandex.ru'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'server3.ahost.uz'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
 EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))

@@ -1,0 +1,21 @@
+{% extends './wrapper.html' %} {% block content %}
+<section>
+  <div class="container">
+    <div class="row my-5">
+        <div class="col-sm-12 col-md-6 mx-auto">
+            <h3>{{request.user.username}}</h3>
+            <ul>
+                <li>{{request.user.first_name}}</li>
+                <li>{{request.user.last_name}}</li>
+                <li>{{request.user.email}}</li>
+
+            </ul>
+            <br>
+            <a href="{% url 'accounts:profile_update' request.user.id %}" class="btn btn-outline-primary">Update Profile</a>
+        </div>
+    </div>
+ 
+  </div>
+</section>
+
+{% endblock %}
