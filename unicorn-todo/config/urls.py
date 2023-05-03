@@ -18,6 +18,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("unicorn/", include("django_unicorn.urls")),
+    # path("unicorn/", include("django_unicorn.urls")),
     path("", include("unicornapp.urls")),
+    path("auth/", include("accounts.urls", namespace='accounts')),
 ]

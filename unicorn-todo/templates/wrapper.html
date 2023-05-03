@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unicorn Todo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  </head>
+  <body>
+    <header>
+      <nav class="bg-dark py-3 px-5">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link text-light fw-bold fs-5">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'accounts:login' %}" class="nav-link text-light fw-bold fs-5">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'accounts:logout' %}" class="nav-link text-light fw-bold fs-5">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'accounts:register' %}" class="nav-link text-light fw-bold fs-5">Register</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
