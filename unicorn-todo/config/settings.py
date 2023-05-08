@@ -140,8 +140,8 @@ load_dotenv()
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = 'server3.ahost.uz'
-EMAIL_PORT = 465
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
 EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
 EMAIL_USE_TLS = False

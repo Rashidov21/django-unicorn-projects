@@ -19,7 +19,7 @@ class UserRegisterView(CreateView):
 class UserProfileView(View):
     
     def get(self, request):
-
+        send_mail("Test email", "qale ishla",settings.EMAIL_HOST_USER,["abdurakhmonrashidov@yandex.com"] )
         return render(request, 'profile.html')
     
     
